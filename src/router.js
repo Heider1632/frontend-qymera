@@ -8,6 +8,13 @@ import HomeTeacher from "./views/teacher/home";
 import ProfileTeacher from "./views/teacher/profile";
 import TeacherNavbar from "./layout/teacher/TeacherNavbar";
 import GroupTeacher from "./views/teacher/group";
+import ListTeacher from "./views/teacher/list";
+import IndicatorTeacher from "./views/teacher/indicator";
+import ActivityTeacher from "./views/teacher/activity";
+import NoteTeacher from "./views/teacher/note";
+import ConsolideTeacher from "./views/teacher/consolide";
+
+
 
 
 //excutive routes views
@@ -60,6 +67,26 @@ const router = new Router({
         {
           path: "groups",
           components: { default: GroupTeacher, header: TeacherNavbar, footer: MainFooter },
+        },
+        {
+          path: "list",
+          components: { default: ListTeacher, header: TeacherNavbar, footer: MainFooter },
+        },
+        {
+          path: "indicator",
+          components: { default: IndicatorTeacher, header: TeacherNavbar, footer: MainFooter },
+        },
+        {
+          path: "activity",
+          components: { default: ActivityTeacher, header: TeacherNavbar, footer: MainFooter },
+        },
+        {
+          path: "note",
+          components: { default: NoteTeacher, header: TeacherNavbar, footer: MainFooter },
+        },
+        {
+          path: "consolide",
+          components: { default: ConsolideTeacher, header: TeacherNavbar, footer: MainFooter },
         }
       ]
     },
