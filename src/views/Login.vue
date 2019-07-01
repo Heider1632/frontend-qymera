@@ -59,6 +59,8 @@
 <script>
 import { LoginCard } from "@/components";
 
+import axios from "axios"; 
+
 export default {
   name: "login",
   components: {
@@ -80,14 +82,24 @@ export default {
   },
   methods: {
     login() {
+      axios.post("http://backend.qymera.net/login/go/", {
+        email: this.email, 
+        password: this.password
+      })
+      .then(response => {
+        console.log(response)
+      })
+      .catch(err => {
+        console.error(err + err.message)
+      })
       let user = {
         name: 'Heider',
         lastname: 'Zapa',
         role: 'teacher'
       }
       
-      this.$store.commit('SET_USER', user)
-      this.$router.push({ path: "/teacher/1" });
+      //this.$store.commit('SET_USER', user)
+      //this.$router.push({ path: "/teacher/1" });
     }
   },
   computed: {

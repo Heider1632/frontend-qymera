@@ -18,8 +18,11 @@ import ConsolideTeacher from "./views/teacher/consolide";
 
 
 //excutive routes views
-import Start from "./views/teacher/start";
+import StartTeacher from "./views/teacher/start";
 import Login from "./views/Login.vue";
+import StartExecutive from "./views/executive/start";
+import HomeExecutive from "./views/executive/home";
+
 
 
 //defult components
@@ -46,8 +49,25 @@ const router = new Router({
       }
     },
     {
+      path: "/executive/:id",
+      component: StartExecutive,
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      },
+      meta: {
+        requiresAuth: true
+      },
+      children: [
+        {
+          path: "",
+          components: { default: HomeExecutive, header: TeacherNavbar, footer: MainFooter },
+        },
+      ]
+    },
+    {
       path: "/teacher/:id",
-      component: Start,
+      component: StartTeacher,
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
